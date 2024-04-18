@@ -1,0 +1,24 @@
+{
+    "name": "fominae/search",
+    "description": "module for searching",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Fomina Elena",
+            "email": "fomina.elena04@mail.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.4 | ^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Search\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    }
+}

@@ -1,7 +1,7 @@
 <?php
 namespace Search;
 
-class SearchComponent {
+class Search {
     public function search($query, $data): array
     {
         $results = [];

@@ -2,14 +2,18 @@
 namespace Search;
 
 use Collect\Collect;
+use function Collect\collection;
 
 class Search {
     public function search($query, $data): Collect
     {
-        $collection = new Collect($data);
-        return $collection->map(function ($item) use ($query) {
-            return strpos($item, $query) !== false ? $item : null;
-        });
+        $results = collection();
+        foreach ($data as $item) {
+            if (strpos($item, $query) !== false) {
+                $results->push($item);
+            }
+        }
+        return $results;
     }
 }
 ?>

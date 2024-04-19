@@ -3,7 +3,7 @@ namespace Search;
 use function Collect\collection;
 
 class Search {
-    public function search($query, $data): Collect
+    public function search($query, $data): array|object
     {
         $dataCollection = collection($data);
         $results = $dataCollection->map(function ($item) use ($query) {

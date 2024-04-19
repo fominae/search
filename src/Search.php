@@ -1,17 +1,15 @@
 <?php
 namespace Search;
 
+use Collect\Collect;
+
 class Search {
-    public function search($query, $data): array|object
+    public function search($query, $data): Collect
     {
-        $results = [];
-        foreach ($data as $item) {
-            $item=(string)$item;
-            if (strpos($item, $query) !== false) {
-                $results[] = $item;
-            }
-        }
-        return $results;
+        $collection = new Collect($data);
+        return $collection->map(function ($item) use ($query) {
+            return strpos($item, $query) !== false ? $item : null;
+        });
     }
 }
 ?>

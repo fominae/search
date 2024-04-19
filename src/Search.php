@@ -6,10 +6,9 @@ class Search {
     public function search($query, $data): Collect
     {
         $dataCollection = collection($data);
-        $results = collection();
-        $dataCollection->each(function ($item) use ($query, $results) {
+        $results = $dataCollection->map(function ($item) use ($query) {
             if (strpos($item, $query) !== false) {
-                $results->push($item);
+                return $item;
             }
         });
         return $results;

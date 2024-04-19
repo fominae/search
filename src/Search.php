@@ -6,7 +6,7 @@ class Search {
     {
         $results = [];
         foreach ($data as $item) {
-            $item->toString();
+            $item=(string)$item;
             if (strpos($item, $query) !== false) {
                 $results[] = $item;
             }

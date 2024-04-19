@@ -5,7 +5,7 @@ use Collect\Collect;
 use function Collect\collection;
 
 class Search {
-    public function search($query, $data): Collect
+    public function search($query, $data): array
     {
         $dataCollection = collection($data);
         $results = collection();
@@ -14,6 +14,6 @@ class Search {
                 $results->push($item);
             }
         });
-        return $results;
+        return $results->toArray();
     }
 }

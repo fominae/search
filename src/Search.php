@@ -1,19 +1,17 @@
 <?php
 namespace Search;
-
-use Collect\Collect;
 use function Collect\collection;
 
 class Search {
-    public function search($query, $data): array
+    public function search($query, $data): array|object
     {
         $dataCollection = collection($data);
-        $results = collection();
-        $dataCollection->each(function ($item) use ($query, $results) {
+        $results = $dataCollection->map(function ($item) use ($query) {
             if (strpos($item, $query) !== false) {
-                $results->push($item);
+                return $item;
             }
         });
-        return $results->toArray();
+        return $results;
     }
 }
+?>

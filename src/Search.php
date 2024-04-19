@@ -11,7 +11,7 @@ class Search {
                 return $item;
             }
         });
-        return $results;
+        return $results->toArray();
     }
 }
 ?>

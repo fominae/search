@@ -7,13 +7,13 @@ use function Collect\collection;
 class Search {
     public function search($query, $data): Collect
     {
+        $dataCollection = collection($data);
         $results = collection();
-        foreach ($data as $item) {
+        $dataCollection->each(function ($item) use ($query, $results) {
             if (strpos($item, $query) !== false) {
                 $results->push($item);
             }
-        }
+        });
         return $results;
     }
 }
-?>

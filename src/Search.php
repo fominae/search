@@ -5,13 +5,13 @@ use function Collect\collection;
 class Search {
     public function search($query, $data): array|object
     {
-        $results = collection();
-        foreach ($data as $item) {
+        $dataCollection = collection($data);
+        $results = $dataCollection->map(function ($item) use ($query) {
             if (strpos($item, $query) !== false) {
-                $results->push($item);
+                return $item;
             }
-        }
-        return $results->toArray();
+        });
+        return $results;
     }
 }
 ?>
